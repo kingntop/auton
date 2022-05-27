@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.22.2"
+    "@playwright/test": "^1.22.2",
+    "adm-zip": "^0.5.9",
+    "rimraf": "^3.0.2"
   }
 }
