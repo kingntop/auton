@@ -10,6 +10,8 @@
   "devDependencies": {
     "@playwright/test": "^1.22.2",
     "adm-zip": "^0.5.9",
+    "axios": "^0.27.2",
+    "form-data": "^4.0.0",
     "rimraf": "^3.0.2"
   }
 }
