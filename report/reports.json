@@ -1,0 +1,170 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/playw/auton/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "name": "chromium",
+        "testDir": "D:/playw/auton/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "report/reports.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "rootDir": "D:/playw/auton/tests",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.22.2",
+    "workers": 1,
+    "webServer": null,
+    "_globalOutputDir": "D:\\playw\\auton",
+    "_configDir": "D:\\playw\\auton",
+    "_testGroupsCount": 1
+  },
+  "suites": [
+    {
+      "title": "0608.spec.ts",
+      "file": "0608.spec.ts",
+      "line": 0,
+      "column": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Home Page",
+          "file": "0608.spec.ts",
+          "line": 160,
+          "column": 6,
+          "specs": [
+            {
+              "title": "공지사항",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 7114,
+                      "stdout": [
+                        {
+                          "text": "\u001b[33m4770\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "file": "0608.spec.ts",
+              "line": 170,
+              "column": 3
+            },
+            {
+              "title": "뉴스/매거진",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 4452,
+                      "stdout": [
+                        {
+                          "text": "\u001b[33m3460\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "file": "0608.spec.ts",
+              "line": 170,
+              "column": 3
+            },
+            {
+              "title": "회사소개",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 4851,
+                      "stdout": [
+                        {
+                          "text": "\u001b[33m3642\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "file": "0608.spec.ts",
+              "line": 170,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

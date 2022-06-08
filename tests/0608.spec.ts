@@ -158,42 +158,68 @@ test.afterAll(async () => {
 });
 
 test.describe('Home Page', () => {
-  test('홍보센터', async ({}) => {
-    page_id = 1;
 
-    await page.goto('https://www.auton.kr/prinfo/notice');
-    await page.hover('#header')
-    await page.locator('#header >> text=공지사항').click();
-    await expect(page).toHaveURL('https://www.auton.kr/prinfo/notice');
-    page.waitForLoadState('domcontentloaded')
+  var array  = [
+    {text:'공지사항',number:1,url:'https://www.auton.kr/prinfo/notice', expect:'공지사항'},
+    {text:'뉴스/매거진',number:2,url:'https://auton.kr/prinfo/news', expect:'뉴스/매거진'},
+    {text:'회사소개',number:2,url:'https://auton.kr/prinfo/news', expect:'회사소개'},
+];
 
-    await delay(500)
-
-  });
-
-
-  test('뉴스/매거진', async ({}) => {
-    page_id = 2;
-
-
-    await page.goto('https://auton.kr/prinfo/news');
-    await page.hover('#header')
-    await page.locator('#header >> text=뉴스/매거진').click();
-    await expect(page).toHaveURL('https://auton.kr/prinfo/news');
-    page.waitForLoadState('domcontentloaded')
-    await delay(500)
-  });
-  
-  
-  test('회사소개', async ({}) => {
+for  (let idx in array){
     
-    page_id = 3;
-    await page.goto('https://auton.kr/company/about');
+  test(array[idx].text, async ({}) => {
+    page_id = array[idx].number;
+
+    await page.goto(array[idx].url);
     await page.hover('#header')
-    await page.locator('#header >> text=회사소개').click();
-    await expect(page).toHaveURL('https://auton.kr/company/about');
-    page.waitForLoadState('domcontentloaded')
+    // await page.locator('#header >> text=공지사항').click();
+    await page.goto(array[idx].url);
+    await expect(page).toHaveURL(array[idx].url);
+    await page.waitForLoadState('domcontentloaded')
+
     await delay(500)
+
   });
+
+};
+
+
+  // test('홍보센터', async ({}) => {
+  //   page_id = 1;
+
+  //   await page.goto('https://www.auton.kr/prinfo/notice');
+  //   await page.hover('#header')
+  //   await page.locator('#header >> text=공지사항').click();
+  //   await expect(page).toHaveURL('https://www.auton.kr/prinfo/notice');
+  //   page.waitForLoadState('domcontentloaded')
+
+  //   await delay(500)
+
+  // });
+
+
+  // test('뉴스/매거진', async ({}) => {
+  //   page_id = 2;
+
+
+  //   await page.goto('https://auton.kr/prinfo/news');
+  //   await page.hover('#header')
+  //   await page.locator('#header >> text=뉴스/매거진').click();
+  //   await expect(page).toHaveURL('https://auton.kr/prinfo/news');
+  //   page.waitForLoadState('domcontentloaded')
+  //   await delay(500)
+  // });
   
+  
+  // test('회사소개', async ({}) => {
+    
+  //   page_id = 3;
+  //   await page.goto('https://auton.kr/company/about');
+  //   await page.hover('#header')
+  //   await page.locator('#header >> text=회사소개').click();
+  //   await expect(page).toHaveURL('https://auton.kr/company/about');
+  //   page.waitForLoadState('domcontentloaded')
+  //   await delay(500)
+  // });
+
 });
