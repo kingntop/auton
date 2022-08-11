@@ -26,6 +26,7 @@ test('TestCase', async ({
 
 }) => {
   const urlList = await getUrlList();
+  
   for (let i = 0; i < urlList.length; i++) {
 
     const browser = await firefox.launch({});

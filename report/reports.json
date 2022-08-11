@@ -12,16 +12,16 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/ubuntu/auton/new-project/test-results",
+        "outputDir": "c:/ubuntu/auton/new-project/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "name": "firefox",
-        "testDir": "C:/ubuntu/auton/new-project/tests",
+        "name": "chromium",
+        "testDir": "c:/ubuntu/auton/new-project/tests",
         "testIgnore": [],
         "testMatch": [
           "**/?(*.)@(spec|test).*"
         ],
-        "timeout": 30000
+        "timeout": 0
       }
     ],
     "reporter": [
@@ -40,15 +40,15 @@
       "max": 5,
       "threshold": 15000
     },
-    "rootDir": "C:/ubuntu/auton/new-project/tests",
+    "rootDir": "c:/ubuntu/auton/new-project/tests",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.22.2",
     "workers": 1,
     "webServer": null,
-    "_globalOutputDir": "C:\\ubuntu\\auton\\new-project",
-    "_configDir": "C:\\ubuntu\\auton\\new-project",
+    "_globalOutputDir": "c:\\ubuntu\\auton\\new-project",
+    "_configDir": "c:\\ubuntu\\auton\\new-project",
     "_testGroupsCount": 1
   },
   "suites": [
@@ -64,36 +64,48 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 0,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectName": "firefox",
+              "projectName": "chromium",
               "results": [
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 20533,
+                  "duration": 23876,
                   "stdout": [
                     {
                       "text": "{\n  code: \u001b[32m'R001'\u001b[39m,\n  message: \u001b[32m'SUCCESS'\u001b[39m,\n  items: [\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m1\u001b[39m,\n      NM: \u001b[32m'공지사항'\u001b[39m,\n      URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m2\u001b[39m,\n      NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m3\u001b[39m,\n      NM: \u001b[32m'회사소개'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news2'\u001b[39m\n    },\n    { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n  ]\n}\n"
                     },
                     {
-                      "text": "f41ec2ab-5a5a-4b25-8d57-fd38035d7d71.webm\n"
+                      "text": "6229029b-7e4d-4d82-9694-b2514486ace6.webm\n"
                     },
                     {
-                      "text": "{ id: \u001b[33m1\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                      "text": "https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/jons//jsons/ {\n  id: \u001b[33m1\u001b[39m,\n  url: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m,\n  elapsed: \u001b[33m2290\u001b[39m,\n  cdate: \u001b[32m'20220812003919'\u001b[39m,\n  success: \u001b[32m'Y'\u001b[39m,\n  screenshot: \u001b[32m'/screenshot/1/20220812003919.png'\u001b[39m,\n  video: \u001b[32m'/video/1/20220812003919/6229029b-7e4d-4d82-9694-b2514486ace6.webm'\u001b[39m,\n  trace: \u001b[32m'/trace/1/20220812003919.zip'\u001b[39m\n}\n"
                     },
                     {
-                      "text": "1c5c8968-4fbe-43f2-ba70-02327449132a.webm\n"
+                      "text": "{ code: \u001b[32m'R001'\u001b[39m, message: \u001b[32m'SUCCESS'\u001b[39m }\n"
                     },
                     {
-                      "text": "{ id: \u001b[33m2\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                      "text": "{\n  id: \u001b[33m1\u001b[39m,\n  url: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m,\n  elapsed: \u001b[33m2290\u001b[39m,\n  cdate: \u001b[32m'20220812003919'\u001b[39m,\n  success: \u001b[32m'Y'\u001b[39m,\n  screenshot: \u001b[32m'/screenshot/1/20220812003919.png'\u001b[39m,\n  video: \u001b[32m'/video/1/20220812003919/6229029b-7e4d-4d82-9694-b2514486ace6.webm'\u001b[39m,\n  trace: \u001b[32m'/trace/1/20220812003919.zip'\u001b[39m\n}\n"
                     },
                     {
-                      "text": "{ id: \u001b[33m3\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                      "text": "ac89a1c8-dbb8-4178-9f91-5a71d71143c9.webm\n"
                     },
                     {
-                      "text": "{ id: \u001b[33m400\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                      "text": "https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/jons//jsons/ {\n  id: \u001b[33m2\u001b[39m,\n  url: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m,\n  elapsed: \u001b[33m2513\u001b[39m,\n  cdate: \u001b[32m'20220812003919'\u001b[39m,\n  success: \u001b[32m'Y'\u001b[39m,\n  screenshot: \u001b[32m'/screenshot/2/20220812003919.png'\u001b[39m,\n  video: \u001b[32m'/video/2/20220812003919/ac89a1c8-dbb8-4178-9f91-5a71d71143c9.webm'\u001b[39m,\n  trace: \u001b[32m'/trace/2/20220812003919.zip'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "{ code: \u001b[32m'R001'\u001b[39m, message: \u001b[32m'SUCCESS'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{\n  id: \u001b[33m2\u001b[39m,\n  url: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m,\n  elapsed: \u001b[33m2513\u001b[39m,\n  cdate: \u001b[32m'20220812003919'\u001b[39m,\n  success: \u001b[32m'Y'\u001b[39m,\n  screenshot: \u001b[32m'/screenshot/2/20220812003919.png'\u001b[39m,\n  video: \u001b[32m'/video/2/20220812003919/ac89a1c8-dbb8-4178-9f91-5a71d71143c9.webm'\u001b[39m,\n  trace: \u001b[32m'/trace/2/20220812003919.zip'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m3\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812003919'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m400\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812003919'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
                     }
                   ],
                   "stderr": [],
@@ -105,7 +117,7 @@
             }
           ],
           "file": "auton.spec.ts",
-          "line": 21,
+          "line": 25,
           "column": 1
         }
       ]
