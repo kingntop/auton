@@ -12,16 +12,16 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/ubuntu/auton/new-project/test-results",
+        "outputDir": "c:/ubuntu/auton/new-project/test-results",
         "repeatEach": 1,
         "retries": 0,
         "name": "chromium",
-        "testDir": "C:/ubuntu/auton/new-project/tests",
+        "testDir": "c:/ubuntu/auton/new-project/tests",
         "testIgnore": [],
         "testMatch": [
           "**/?(*.)@(spec|test).*"
         ],
-        "timeout": 30000
+        "timeout": 0
       }
     ],
     "reporter": [
@@ -40,102 +40,38 @@
       "max": 5,
       "threshold": 15000
     },
-    "rootDir": "C:/ubuntu/auton/new-project/tests",
+    "rootDir": "c:/ubuntu/auton/new-project/tests",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.22.2",
     "workers": 1,
     "webServer": null,
-    "_globalOutputDir": "C:\\ubuntu\\auton\\new-project",
-    "_configDir": "C:\\ubuntu\\auton\\new-project",
+    "_globalOutputDir": "c:\\ubuntu\\auton\\new-project",
+    "_configDir": "c:\\ubuntu\\auton\\new-project",
     "_testGroupsCount": 1
   },
   "suites": [
     {
-      "title": "auton.spec.ts",
-      "file": "auton.spec.ts",
+      "title": "test-1.spec.ts",
+      "file": "test-1.spec.ts",
       "line": 0,
       "column": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Home Page",
-          "file": "auton.spec.ts",
-          "line": 159,
+          "title": "Auton",
+          "file": "test-1.spec.ts",
+          "line": 3,
           "column": 6,
           "specs": [
-            {
-              "title": "홍보센터",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 2193,
-                      "stdout": [
-                        {
-                          "text": "\u001b[33m1512\u001b[39m\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "file": "auton.spec.ts",
-              "line": 160,
-              "column": 3
-            },
-            {
-              "title": "뉴스/매거진",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 2095,
-                      "stdout": [
-                        {
-                          "text": "\u001b[33m1685\u001b[39m\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "file": "auton.spec.ts",
-              "line": 174,
-              "column": 3
-            },
             {
               "title": "회사소개",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 0,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectName": "chromium",
@@ -143,12 +79,8 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 2424,
-                      "stdout": [
-                        {
-                          "text": "\u001b[33m1679\u001b[39m\n"
-                        }
-                      ],
+                      "duration": 3479,
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "attachments": []
@@ -157,9 +89,9 @@
                   "status": "expected"
                 }
               ],
-              "file": "auton.spec.ts",
-              "line": 187,
-              "column": 3
+              "file": "test-1.spec.ts",
+              "line": 25,
+              "column": 5
             }
           ]
         }

@@ -19,6 +19,11 @@ const post_url = DEV + 'v1/twright/logs/'
 const get_url  = DEV + 'v1/twright/tests/'
 const get_all_url = DEV + 'twright/v1/twright/tests' 
 
+
+const image_url = 'images/images/';
+const json_url = 'jons//jsons/'
+
+
 /**
  * Test UID 정보
  * @param {string} uid uid
@@ -74,59 +79,54 @@ async function postApex(rid : String, upJson: any):Promise < boolean > {
     }
 }
 
+async function upload_video( fileType: String, fileName: String, fileLocation) {
 
+  const fs=require('fs'),lazy = require('lazy');
+  const form_data = new FormData();
 
-async function upload_video(url: String, fileType: String, fileName: String, fil                                                                                                                                   eLocation) {
-    const fs = require('fs')
-    const form_data = new FormData();
-    try {
-      fs.readdir('./videos', function (err, files) { //Get a listing of all the fi                                                                                                                                   les in the dir
-          // if (err) throw err;
-          try {
-          files.forEach(function (file) {
-              console.log(page_id, file);
-              form_data.append('file', fs.createReadStream('videos/' + file));
-              const request_config = {
-                headers: {
-                  "filename": file,
-                  "image_type": 'image/webp',
-                  "page_id": page_id,
-                  "serial_id": serial_id,
-                  "Content-Type": "multipart/form-data"
-                },
-                maxContentLength: Infinity,
-                maxBodyLength: Infinity,
-                data: form_data
-              };
-              return axios
-                .post(url, form_data, request_config);
-  
-          });
-        } catch (e) {}
-      })
-    } catch (e) {}
-  
-  }
-  async function upload_image(url: String, fileType: String, fileName: String, fil                                                                                                                                   eLocation) {
-    const form_data = new FormData();
-    form_data.append('file', fs.createReadStream(fileLocation));
-  
-    const request_config = {
-      headers: {
-        "filename": fileName,
-        "image_type": fileType,
-        "page_id": page_id,
-        "loadtime": endTime - startTime - 500,
-        "serial_id": serial_id,
-        "Content-Type": "multipart/form-data"
-      },
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity,
-      data: form_data
-    };
-    return axios
-      .post(url, form_data, request_config).catch(error => {});
-  }
+  fs.readdir('./videos',function(err,files){    //Get a listing of all the files in the dir
+    if (err) throw err;
+    files.forEach(function(file){
+        console.log(page_id, file);
+        form_data.append('file', fs.createReadStream('videos/' + file));
+        const request_config = {
+          headers: {
+            "filename": file,
+            "image_type": 'image/webp',
+            "page_id":page_id,
+            "serial_id": serial_id,
+            "Content-Type": "multipart/form-data"
+          },
+          maxContentLength: Infinity,
+          maxBodyLength: Infinity,
+          data: form_data
+        };
+        return axios
+          .post(DEV+upload_image, form_data, request_config); 
+    });
+  })
+
+}
+async function upload_image(url: String, fileType: String, fileName: String, fileLocation) {
+  const form_data = new FormData();
+  form_data.append('file', fs.createReadStream(fileLocation));
+
+  const request_config = {
+    headers: {
+      "filename": fileName,
+      "image_type": fileType,
+      "page_id":page_id,
+      "loadtime" : endTime-startTime-500,
+      "serial_id": serial_id,
+      "Content-Type": "multipart/form-data"
+    },
+    maxContentLength: Infinity,
+    maxBodyLength: Infinity,
+    data: form_data
+  };
+  return axios
+    .post(DEV+upload_image, form_data, request_config);
+}
 
 
 export {
