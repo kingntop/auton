@@ -12,16 +12,16 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/ubuntu/auton/new-project/test-results",
+        "outputDir": "c:/ubuntu/auton/new-project/test-results",
         "repeatEach": 1,
         "retries": 0,
         "name": "chromium",
-        "testDir": "C:/ubuntu/auton/new-project/tests",
+        "testDir": "c:/ubuntu/auton/new-project/tests",
         "testIgnore": [],
         "testMatch": [
           "**/?(*.)@(spec|test).*"
         ],
-        "timeout": 30000
+        "timeout": 0
       }
     ],
     "reporter": [
@@ -40,15 +40,15 @@
       "max": 5,
       "threshold": 15000
     },
-    "rootDir": "C:/ubuntu/auton/new-project/tests",
+    "rootDir": "c:/ubuntu/auton/new-project/tests",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.22.2",
     "workers": 1,
     "webServer": null,
-    "_globalOutputDir": "C:\\ubuntu\\auton\\new-project",
-    "_configDir": "C:\\ubuntu\\auton\\new-project",
+    "_globalOutputDir": "c:\\ubuntu\\auton\\new-project",
+    "_configDir": "c:\\ubuntu\\auton\\new-project",
     "_testGroupsCount": 1
   },
   "suites": [
@@ -62,7 +62,7 @@
         {
           "title": "Auton",
           "file": "auton.spec.ts",
-          "line": 19,
+          "line": 21,
           "column": 6,
           "specs": [
             {
@@ -71,7 +71,7 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 0,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectName": "chromium",
@@ -79,25 +79,10 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 9671,
+                      "duration": 23374,
                       "stdout": [
                         {
                           "text": "{\n  code: \u001b[32m'R001'\u001b[39m,\n  message: \u001b[32m'SUCCESS'\u001b[39m,\n  items: [\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m1\u001b[39m,\n      NM: \u001b[32m'공지사항'\u001b[39m,\n      URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m2\u001b[39m,\n      NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m3\u001b[39m,\n      NM: \u001b[32m'회사소개'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n  ]\n}\n"
-                        },
-                        {
-                          "text": "[\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m1\u001b[39m,\n    NM: \u001b[32m'공지사항'\u001b[39m,\n    URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n  },\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m2\u001b[39m,\n    NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n    URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n  },\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m3\u001b[39m,\n    NM: \u001b[32m'회사소개'\u001b[39m,\n    URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n  },\n  { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n]\n"
-                        },
-                        {
-                          "text": "https://www.auton.kr/prinfo/notice\n"
-                        },
-                        {
-                          "text": "https://auton.kr/prinfo/news\n"
-                        },
-                        {
-                          "text": "https://auton.kr/prinfo/news\n"
-                        },
-                        {
-                          "text": "\u001b[90mundefined\u001b[39m\n"
                         }
                       ],
                       "stderr": [],
@@ -109,7 +94,7 @@
                 }
               ],
               "file": "auton.spec.ts",
-              "line": 29,
+              "line": 36,
               "column": 3
             }
           ]
