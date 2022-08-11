@@ -23,7 +23,8 @@ import axios, {
 // const image_url = 'images/images/';
 // const json_url = 'jons//jsons/'
 
-
+const auth_key = 'a'
+const post_url = 'https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/jons//jsons/'
 
 async function getUrlList(): Promise < any[] > {
     let users: any[] = [];
@@ -37,29 +38,29 @@ async function getUrlList(): Promise < any[] > {
     return response.data.items
 }
 
-// async function postApex(rid : String, upJson: any):Promise < boolean > {
-//     const request_config = {
-//         headers: {
-//             "Content-Type": 'application/json',
-//             "Authorization": auth_key,
-//         },
-//         maxContentLength: Infinity,
-//         maxBodyLength: Infinity,
-//         data: upJson
-//     };
-//     const response = await axios.post(post_url + rid, upJson, request_config);
-//     console.log(post_url, upJson)
-//     try {
-//         if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
-//             console.log(response.data);
-//             return true;
-//         }
-//         return false;
-//     } catch (err) {
-//         console.error(err)
-//         return false;
-//     }
-// }
+async function postApex(upJson: any):Promise < boolean > {
+    const request_config = {
+        headers: {
+            "Content-Type": 'application/json',
+            "Authorization": auth_key,
+        },
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        data: upJson
+    };
+    const response = await axios.post(post_url,  upJson, request_config);
+    console.log(post_url, upJson)
+    try {
+        if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+            console.log(response.data);
+            return true;
+        }
+        return false;
+    } catch (err) {
+        console.error(err)
+        return false;
+    }
+}
 
 // async function upload_video( fileType: String, fileName: String, fileLocation) {
 
@@ -112,6 +113,6 @@ async function getUrlList(): Promise < any[] > {
 
 
 export {
-    // postApex,
+    postApex,
     getUrlList
 }

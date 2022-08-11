@@ -12,16 +12,16 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "c:/ubuntu/auton/new-project/test-results",
+        "outputDir": "C:/ubuntu/auton/new-project/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "name": "chromium",
-        "testDir": "c:/ubuntu/auton/new-project/tests",
+        "name": "firefox",
+        "testDir": "C:/ubuntu/auton/new-project/tests",
         "testIgnore": [],
         "testMatch": [
           "**/?(*.)@(spec|test).*"
         ],
-        "timeout": 0
+        "timeout": 30000
       }
     ],
     "reporter": [
@@ -40,15 +40,15 @@
       "max": 5,
       "threshold": 15000
     },
-    "rootDir": "c:/ubuntu/auton/new-project/tests",
+    "rootDir": "C:/ubuntu/auton/new-project/tests",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.22.2",
     "workers": 1,
     "webServer": null,
-    "_globalOutputDir": "c:\\ubuntu\\auton\\new-project",
-    "_configDir": "c:\\ubuntu\\auton\\new-project",
+    "_globalOutputDir": "C:\\ubuntu\\auton\\new-project",
+    "_configDir": "C:\\ubuntu\\auton\\new-project",
     "_testGroupsCount": 1
   },
   "suites": [
@@ -57,47 +57,56 @@
       "file": "auton.spec.ts",
       "line": 0,
       "column": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Auton",
-          "file": "auton.spec.ts",
-          "line": 21,
-          "column": 6,
-          "specs": [
+          "title": "TestCase",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "TestCase",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectName": "firefox",
+              "results": [
                 {
-                  "timeout": 0,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectName": "chromium",
-                  "results": [
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 20533,
+                  "stdout": [
                     {
-                      "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 72800,
-                      "stdout": [
-                        {
-                          "text": "{\n  code: \u001b[32m'R001'\u001b[39m,\n  message: \u001b[32m'SUCCESS'\u001b[39m,\n  items: [\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m1\u001b[39m,\n      NM: \u001b[32m'공지사항'\u001b[39m,\n      URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m2\u001b[39m,\n      NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m3\u001b[39m,\n      NM: \u001b[32m'회사소개'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n  ]\n}\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "attachments": []
+                      "text": "{\n  code: \u001b[32m'R001'\u001b[39m,\n  message: \u001b[32m'SUCCESS'\u001b[39m,\n  items: [\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m1\u001b[39m,\n      NM: \u001b[32m'공지사항'\u001b[39m,\n      URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m2\u001b[39m,\n      NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m3\u001b[39m,\n      NM: \u001b[32m'회사소개'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news2'\u001b[39m\n    },\n    { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n  ]\n}\n"
+                    },
+                    {
+                      "text": "f41ec2ab-5a5a-4b25-8d57-fd38035d7d71.webm\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m1\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "1c5c8968-4fbe-43f2-ba70-02327449132a.webm\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m2\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m3\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{ id: \u001b[33m400\u001b[39m, elapsed: \u001b[33m0\u001b[39m, cdate: \u001b[32m'20220812000937'\u001b[39m, success: \u001b[32m'N'\u001b[39m }\n"
                     }
                   ],
-                  "status": "expected"
+                  "stderr": [],
+                  "retry": 0,
+                  "attachments": []
                 }
               ],
-              "file": "auton.spec.ts",
-              "line": 36,
-              "column": 3
+              "status": "expected"
             }
-          ]
+          ],
+          "file": "auton.spec.ts",
+          "line": 21,
+          "column": 1
         }
       ]
     }
