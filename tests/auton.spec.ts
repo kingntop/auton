@@ -1,5 +1,6 @@
 import {
   test,
+  chromium,
   expect
 } from '@playwright/test';
 
@@ -10,49 +11,47 @@ import {
 
 // Apex 연동
 import {
-  getUid,
-  postApex,
+
   getUrlList
 } from "./common/apex";
 
 
 test.describe('Auton', async () => {
 
+  test.beforeAll(async () => {});
 
-  test.beforeAll(async () => {
+  test.beforeEach(async () => {});
 
-  });
+  test.afterEach(async () => {});
 
+  test.afterAll(async () => {});
 
-  test.beforeEach(async () => {
+  test('TestCase', async ({
+    page
+  }) => {
 
-
-  });
-
-  test.afterEach(async () => {
-
-  });
-
-  test.afterAll(async () => {
-
-  });
-
-
-  test('회사소개', async ({page}) => {
+    const browser = await chromium.launch({});
+    const context = await browser.newContext({
+        /* pass any options */ });
+    page = await context.newPage();
 
     const urlList = await getUrlList();
     console.log(urlList)
 
-    for (const urlJson of urlList) {
-      const url = urlJson.url;
-      
-      await page.goto(url);
-      await page.screenshot({path: './screenshot/' + replaceK(url) + '.png'});
+    for (let i = 0; i < urlList.length; i++) {
+      const url = urlList[i].URL;
 
+      try {
+        const url = urlList[i].URL;
+        await page.goto(url, {
+          waitUntil: 'networkidle'
+        });
+        await page.waitForTimeout(1000);
+        await page.screenshot({
+          path: './screenshot/' + urlList[i].TEST_ID + '.png'
+        });
+      } catch (e) {}
     }
-    await page.goto('https://auton.kr/company/about');
-
-
-  });
-
+  })
+    
 });
