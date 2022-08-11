@@ -20,8 +20,6 @@ import path from 'path';
 
 test.describe('Auton', async () => {
 
-
-
   test.beforeAll(async ({
     browser
   }) => {
@@ -34,7 +32,7 @@ test.describe('Auton', async () => {
   test.afterAll(async () => {});
 
   test('TestCase', async ({
-    
+
   }) => {
     const urlList = await getUrlList();
     for (let i = 0; i < urlList.length; i++) {
@@ -53,7 +51,8 @@ test.describe('Auton', async () => {
         }
       });
       await context.tracing.start({
-        screenshots: true,snapshots: true
+        screenshots: true,
+        snapshots: true
       })
       const page = await context.newPage();
       try {
@@ -63,14 +62,16 @@ test.describe('Auton', async () => {
         });
         await page.waitForTimeout(1000);
         await page.screenshot({
-          path: './screenshot/' + urlList[i].TEST_ID + '.png'
+          path: './screenshot/' + urlList[i].TEST_ID + '/screenshot.png'
         });
       } catch (e) {}
-      await context.tracing.stop({path:`trace/${urlList[i].TEST_ID}.zip`});
+      await context.tracing.stop({
+        path: `trace/${urlList[i].TEST_ID}.zip`
+      });
       await browser.close();
       await context.close();
-    } 
-  
+    }
+
   })
 
 });
