@@ -62,12 +62,12 @@
         {
           "title": "Auton",
           "file": "test-1.spec.ts",
-          "line": 3,
+          "line": 18,
           "column": 6,
           "specs": [
             {
               "title": "회사소개",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -78,20 +78,36 @@
                   "results": [
                     {
                       "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 3479,
-                      "stdout": [],
+                      "status": "failed",
+                      "duration": 30283,
+                      "error": {
+                        "message": "page.goto: url: expected string, got undefined",
+                        "stack": "page.goto: url: expected string, got undefined\n    at c:\\ubuntu\\auton\\new-project\\tests\\test-1.spec.ts:38:18"
+                      },
+                      "stdout": [
+                        {
+                          "text": "{\n  code: \u001b[32m'R001'\u001b[39m,\n  message: \u001b[32m'SUCCESS'\u001b[39m,\n  items: [\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m1\u001b[39m,\n      NM: \u001b[32m'공지사항'\u001b[39m,\n      URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m2\u001b[39m,\n      NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    {\n      PROJECT_ID: \u001b[33m10\u001b[39m,\n      TEST_ID: \u001b[33m3\u001b[39m,\n      NM: \u001b[32m'회사소개'\u001b[39m,\n      URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n    },\n    { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n  ]\n}\n"
+                        },
+                        {
+                          "text": "[\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m1\u001b[39m,\n    NM: \u001b[32m'공지사항'\u001b[39m,\n    URL: \u001b[32m'https://www.auton.kr/prinfo/notice'\u001b[39m\n  },\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m2\u001b[39m,\n    NM: \u001b[32m'뉴스/매거진'\u001b[39m,\n    URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n  },\n  {\n    PROJECT_ID: \u001b[33m10\u001b[39m,\n    TEST_ID: \u001b[33m3\u001b[39m,\n    NM: \u001b[32m'회사소개'\u001b[39m,\n    URL: \u001b[32m'https://auton.kr/prinfo/news'\u001b[39m\n  },\n  { PROJECT_ID: \u001b[33m40\u001b[39m, TEST_ID: \u001b[33m400\u001b[39m, NM: \u001b[32m'기아 몰 결재 조회 속도개선'\u001b[39m }\n]\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "attachments": []
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "c:\\ubuntu\\auton\\new-project\\tests\\test-1.spec.ts",
+                        "column": 18,
+                        "line": 38
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "file": "test-1.spec.ts",
-              "line": 25,
-              "column": 5
+              "line": 28,
+              "column": 3
             }
           ]
         }
