@@ -32,15 +32,7 @@ test('TestCase', async ({
     const browser = await firefox.launch({});
     const context = await browser.newContext({
       recordVideo: {
-        dir: `./video/${urlList[i].TEST_ID}/${today}`,
-        size: {
-          width: 1920,
-          height: 1080
-        }
-      },
-      viewport: {
-        width: 1920,
-        height: 1080
+        dir: `./video/${urlList[i].TEST_ID}/${today}`
       }
     });
     await context.tracing.start({
@@ -88,7 +80,6 @@ test('TestCase', async ({
       }
       console.log(upJson)
     }
-    await context.close();
     await browser.close();
 
   }
