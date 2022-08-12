@@ -11,6 +11,11 @@ import {
   today
 } from "./common/utils";
 
+
+import {
+  LoginPage
+} from "./pages/loginpage";
+
 // Apex 연동
 import {
 
@@ -43,7 +48,7 @@ test('TestCase', async ({
       });
       const endTime = new Date();
       const elapsed = endTime - startTime;
-      await page.waitForTimeout(1000);
+      // await page.waitForTimeout(1000);
       await page.screenshot({
         path: `./screenshot/${urlList[i].TEST_ID}/${today}.png`
       });
