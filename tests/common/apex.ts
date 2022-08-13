@@ -28,7 +28,6 @@ const post_url = 'https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oracleclouda
 
 async function getUrlList(): Promise < any[] > {
     let users: any[] = [];
-
     const response:any =  await axios.get('https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/lists/lists/', {
         // headers: {
         //     Authorization: auth_key 

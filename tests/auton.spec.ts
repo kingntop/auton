@@ -11,6 +11,7 @@ import {
   today
 } from "./common/utils";
 
+import path from 'path';
 
 import {
   LoginPage
@@ -24,92 +25,81 @@ import {
 } from "./common/apex";
 
 import fs from 'fs';
-test('TestCase', async ({
 
-}) => {
-  const urlList = await getUrlList();
+test.describe('two tests', () => {
 
-  let  videoUrl = []
+  test.beforeAll(async () => {
+    console.log('Before tests');
+  });
+  test.beforeEach(async ({ page }) => {
+    console.log('Before tests');
+  });
+  test.afterEach(async ({ page }) => {
+    console.log('Before tests');
+  });
   
-  for (let i = 0; i < urlList.length; i++) {
-    const browser = await firefox.launch({ });
-    const context = await browser.newContext({});
-    await context.tracing.start({
-      screenshots: true,
-      snapshots: true
-    })
-    try {
+  test.afterAll(async () => {
+    console.log('After tests');
+  });
+
+  test('TestCase', async ({}) => {
+    const urlList = await getUrlList();
+
+    for (let i = 0; i < urlList.length; i++) {
+      const browser = await chromium.launch({
+        channel: 'msedge',
+      });
+      const dirVideo = `./video/${urlList[i].TEST_ID}/${today}`
+      let elapsed: number = 0;
+      let success = 'Y';
+      let error = '';
+      const context = await browser.newContext({
+        recordVideo: {
+          dir: dirVideo
+        }
+      });
+      await context.tracing.start({
+        screenshots: true,
+        snapshots: true
+      })
       const page = await context.newPage();
-      const url = urlList[i].URL;
-      const startTime = new Date();
-      await page.goto(url, {
-        waitUntil: 'networkidle',
-        timeout: 3000
-      });
-      const endTime = new Date();
-      const elapsed = endTime - startTime;
-      // await page.waitForTimeout(1000);
-      await page.screenshot({
-        path: `./screenshot/${urlList[i].TEST_ID}/${today}.png`
-      });
+      try {
+        const startTime = new Date();
+        await page.goto(urlList[i].URL, {
+          waitUntil: 'domcontentloaded',
+          timeout: 5000
+        });
+        const endTime = new Date();
+        elapsed = endTime - startTime;
+        await page.waitForTimeout(2000);
+        await page.waitForSelector(urlList[i].EXPECT);
+        await page.screenshot({
+          path: `./screenshot/${urlList[i].TEST_ID}/${today}.png`
+        });
+      } catch (err) {
+        console.log(err)
+        success = 'N';
+        error = err.toString();
+      }
       await context.tracing.stop({
         path: `./trace/${urlList[i].TEST_ID}/${today}.zip`
       });
+      await context.close();
+      await browser.close();
+      const files = fs.readdirSync(dirVideo);
+      const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/');
       const upJson = {
         id: urlList[i].TEST_ID,
-        url: url,
+        url: urlList[i].url,
         elapsed: elapsed,
         cdate: today,
-        success: 'Y',
+        success: success,
+        error: error,
         screenshot: `/screenshot/${urlList[i].TEST_ID}/${today}.png`,
-        traces: `/trace/${urlList[i].TEST_ID}/${today}.zip`
+        traces: `/trace/${urlList[i].TEST_ID}/${today}.zip`,
+        video: `${videoDir}`,
       }
-      videoUrl.push(upJson)
-    } catch (err) {
-      const upJson = {
-        id: urlList[i].TEST_ID,
-        elapsed: 0,
-        cdate: today,
-        success: 'N'
-      }
-      console.log(upJson)
       const result = await postApex(upJson);
     }
-    await browser.close();
-  }
-  
-  for (let i = 0; i < videoUrl.length; i++) {
-
-    const browser = await chromium.launch({ });
-    const context = await browser.newContext({
-      recordVideo: {
-        dir: `./video/${urlList[i].TEST_ID}/${today}`
-      }
-    });
-
-    try {
-      const page = await context.newPage();
-      const url = videoUrl[i].url;
-      const startTime = new Date();
-      await page.goto(url, {
-        waitUntil: 'networkidle',
-        timeout: 3000
-      });
-      const files = fs.readdirSync(`./video/${urlList[i].TEST_ID}/${today}`);
-      console.log(files[0])
-      const upJson = {
-        id: videoUrl[i].id,
-        url: videoUrl[i].url,
-        elapsed: videoUrl[i].elapsed,
-        cdate: videoUrl[i].cdate,
-        success: videoUrl[i].success,
-        screenshot: videoUrl[i].screenshot,
-        video: `/video/${videoUrl[i].id}/${today}/${files[0]}`,
-        traces: videoUrl[i].traces
-      }
-      const result = await postApex(upJson);
-      console.log(upJson)
-    } catch (err) { }
-    await browser.close();
-  }
-})
+  })
+});
