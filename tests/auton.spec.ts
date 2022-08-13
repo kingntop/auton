@@ -17,6 +17,9 @@ import {
   LoginPage
 } from "./pages/loginpage";
 
+import { user } from './testdata';
+
+
 // Apex 연동
 import {
 
@@ -46,9 +49,8 @@ test.describe('two tests', () => {
     const urlList = await getUrlList();
 
     for (let i = 0; i < urlList.length; i++) {
-      const browser = await chromium.launch({
-        channel: 'msedge',
-      });
+
+      const browser = await chromium.launch();
       const dirVideo = `./video/${urlList[i].TEST_ID}/${today}`
       let elapsed: number = 0;
       let success = 'Y';
@@ -62,7 +64,11 @@ test.describe('two tests', () => {
         screenshots: true,
         snapshots: true
       })
-      const page = await context.newPage();
+      let page = await context.newPage();
+
+
+      await new LoginPage(page).login(user.email, user.password)
+
       try {
         const startTime = new Date();
         await page.goto(urlList[i].URL, {
