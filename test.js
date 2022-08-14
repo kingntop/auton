@@ -1,12 +1,10 @@
-const delay = (ms) => {
-    return new Promise((resole) =>
-        setTimeout(() => {
-            resolve(ms)
-        }, ms)
-    )
+function delay(n) {
+    return new Promise(resolve => setTimeout(resolve, n*1000));
 }
 
-const main2 = async () => {
-    const result = await delay(1000)
-
+async function asyncPrint(value, n) {
+    console.log('start');
+    await delay(n);
+    console.log(value);
 }
+asyncPrint('hello world', 2);
