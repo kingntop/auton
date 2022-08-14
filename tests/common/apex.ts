@@ -37,6 +37,17 @@ async function getUrlList(): Promise < any[] > {
     return response.data.items
 }
 
+async function getProjectUrlList(): Promise < any[] > {
+    let users: any[] = [];
+    const response:any =  await axios.get('https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/lists/projects/', {
+        // headers: {
+        //     Authorization: auth_key 
+        // }
+    })
+    console.log(response.data)
+    return response.data.items
+}
+
 async function postApex(upJson: any):Promise < boolean > {
     const request_config = {
         headers: {
@@ -61,57 +72,8 @@ async function postApex(upJson: any):Promise < boolean > {
     }
 }
 
-// async function upload_video( fileType: String, fileName: String, fileLocation) {
-
-//   const fs=require('fs'),lazy = require('lazy');
-//   const form_data = new FormData();
-
-//   fs.readdir('./videos',function(err,files){    //Get a listing of all the files in the dir
-//     if (err) throw err;
-//     files.forEach(function(file){
-//         console.log(page_id, file);
-//         form_data.append('file', fs.createReadStream('videos/' + file));
-//         const request_config = {
-//           headers: {
-//             "filename": file,
-//             "image_type": 'image/webp',
-//             "page_id":page_id,
-//             "serial_id": serial_id,
-//             "Content-Type": "multipart/form-data"
-//           },
-//           maxContentLength: Infinity,
-//           maxBodyLength: Infinity,
-//           data: form_data
-//         };
-//         return axios
-//           .post(DEV+upload_image, form_data, request_config); 
-//     });
-//   })
-
-// }
-// async function upload_image(url: String, fileType: String, fileName: String, fileLocation) {
-//   const form_data = new FormData();
-//   form_data.append('file', fs.createReadStream(fileLocation));
-
-//   const request_config = {
-//     headers: {
-//       "filename": fileName,
-//       "image_type": fileType,
-//       "page_id":page_id,
-//       "loadtime" : endTime-startTime-500,
-//       "serial_id": serial_id,
-//       "Content-Type": "multipart/form-data"
-//     },
-//     maxContentLength: Infinity,
-//     maxBodyLength: Infinity,
-//     data: form_data
-//   };
-//   return axios
-//     .post(DEV+upload_image, form_data, request_config);
-// }
-
-
 export {
     postApex,
-    getUrlList
+    getUrlList,
+    getProjectUrlList
 }
