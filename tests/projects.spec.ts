@@ -1,6 +1,6 @@
 import {
   test,
-  expect,
+  // expect,
   chromium
 } from '@playwright/test';
 
@@ -15,7 +15,10 @@ import {
   postApex
 } from "./common/apex";
 import fs from 'fs';
-test('Projects Test', async ({}) => {
+test('Projects Test', async ({}, expect) => {
+
+
+
   const lists = await getProjectUrlList();
   for (let i = 0; i < lists.length; i++) {
     const dirVideo = `./video/${lists[i].PROJECT_ID}/${today}`
@@ -34,6 +37,8 @@ test('Projects Test', async ({}) => {
       snapshots: true
     })
     let page = await context.newPage();
+    const { expect } = require('@playwright/test');
+    const navigationPromise = page.waitForNavigation()
     try {
       async function playtest(code: string) {
         await eval(` 
