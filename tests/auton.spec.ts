@@ -1,28 +1,17 @@
 import {
   test,
   chromium,
-  firefox,
   expect
 } from '@playwright/test';
 import {
-  replaceK,
-  yesterday,
   today
 } from "./common/utils";
 import path from 'path';
-import {
-  LoginPage
-} from "./pages/loginpage";
-import {
-  user,
-  asite_user
-} from './testdata';
 import {
   getUrlList,
   postApex
 } from "./common/apex";
 import fs from 'fs';
-
 test('TestCase', async ({}) => {
   const urlList = await getUrlList();
   for (let i = 0; i < urlList.length; i++) {
@@ -41,7 +30,6 @@ test('TestCase', async ({}) => {
       snapshots: true
     })
     let page = await context.newPage();
-    await new LoginPage(page).login(user.email, user.password)
     try {
       const startTime = new Date();
       await page.goto(urlList[i].URL, {
