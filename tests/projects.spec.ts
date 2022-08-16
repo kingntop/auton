@@ -66,7 +66,7 @@ test('Projects Test', async ({}, expect) => {
     await context.close();
     await browser.close();
     const files = fs.readdirSync(dirVideo);
-    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/');
+    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/').replace('public', '');
     const upJson = {
       id: lists[i].PROJECT_ID,
       name : lists[i].PROJECT_NAME,
@@ -75,8 +75,8 @@ test('Projects Test', async ({}, expect) => {
       cdate: today,
       success: success,
       error: error,
-      screenshot: `/public/screenshot/${lists[i].PROJECT_ID}/${today}.png`,
-      traces: `/public/trace/${lists[i].PROJECT_ID}/${today}.zip`,
+      screenshot: `/screenshot/${lists[i].PROJECT_ID}/${today}.png`,
+      traces: `/trace/${lists[i].PROJECT_ID}/${today}.zip`,
       video: `${videoDir}`,
     }
     console.log(upJson)

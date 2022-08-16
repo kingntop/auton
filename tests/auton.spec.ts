@@ -58,7 +58,7 @@ test('TestCase', async ({}) => {
     await context.close();
     await browser.close();
     const files = fs.readdirSync(dirVideo);
-    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/');
+    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/').replace('public', '');
     const upJson = {
       id: urlList[i].TEST_ID,
       url: urlList[i].URL,
@@ -68,8 +68,8 @@ test('TestCase', async ({}) => {
       cdate: today,
       success: success,
       error: error,
-      screenshot: `/public/screenshot/${urlList[i].TEST_ID}/${today}.png`,
-      traces: `/public/trace/${urlList[i].TEST_ID}/${today}.zip`,
+      screenshot: `/screenshot/${urlList[i].TEST_ID}/${today}.png`,
+      traces: `/trace/${urlList[i].TEST_ID}/${today}.zip`,
       video: `${videoDir}`,
     }
     const result = await postApex(upJson);
