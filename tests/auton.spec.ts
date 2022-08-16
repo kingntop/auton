@@ -1,6 +1,7 @@
 import {
   test,
   chromium,
+  firefox,
   expect
 } from '@playwright/test';
 import {
@@ -15,7 +16,11 @@ import fs from 'fs';
 test('TestCase', async ({}) => {
   const urlList = await getUrlList();
   for (let i = 0; i < urlList.length; i++) {
-    const browser = await chromium.launch();
+
+    const browser = await chromium.launch({
+      channel: 'msedge',
+    });
+
     const dirVideo = `./video/${urlList[i].TEST_ID}/${today}`
     let elapsed: number = 0;
     let success = 'Y';
