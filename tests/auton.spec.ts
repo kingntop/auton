@@ -21,7 +21,7 @@ test('TestCase', async ({}) => {
       channel: 'msedge',
     });
 
-    const dirVideo = `./video/${urlList[i].TEST_ID}/${today}`
+    const dirVideo = `./public/video/${urlList[i].TEST_ID}/${today}`
     let elapsed: number = 0;
     let success = 'Y';
     let error = '';
@@ -46,14 +46,14 @@ test('TestCase', async ({}) => {
       await page.waitForTimeout(2000);
       await page.waitForSelector(urlList[i].EXPECT);
       await page.screenshot({
-        path: `./screenshot/${urlList[i].TEST_ID}/${today}.png`
+        path: `./public/screenshot/${urlList[i].TEST_ID}/${today}.png`
       });
     } catch (err) {
       success = 'N';
       error = err.toString();
     }
     await context.tracing.stop({
-      path: `./trace/${urlList[i].TEST_ID}/${today}.zip`
+      path: `./public/trace/${urlList[i].TEST_ID}/${today}.zip`
     });
     await context.close();
     await browser.close();
@@ -68,8 +68,8 @@ test('TestCase', async ({}) => {
       cdate: today,
       success: success,
       error: error,
-      screenshot: `/screenshot/${urlList[i].TEST_ID}/${today}.png`,
-      traces: `/trace/${urlList[i].TEST_ID}/${today}.zip`,
+      screenshot: `/public/screenshot/${urlList[i].TEST_ID}/${today}.png`,
+      traces: `/public/trace/${urlList[i].TEST_ID}/${today}.zip`,
       video: `${videoDir}`,
     }
     const result = await postApex(upJson);

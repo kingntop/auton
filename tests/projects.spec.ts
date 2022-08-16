@@ -19,7 +19,7 @@ test('Projects Test', async ({}, expect) => {
 
   const lists = await getProjectUrlList();
   for (let i = 0; i < lists.length; i++) {
-    const dirVideo = `./video/${lists[i].PROJECT_ID}/${today}`
+    const dirVideo = `./public/video/${lists[i].PROJECT_ID}/${today}`
     let elapsed: number = 0;
     let success = 'Y';
     let error = '';
@@ -58,10 +58,10 @@ test('Projects Test', async ({}, expect) => {
       error = err.toString();
     }
     await page.screenshot({
-      path:  `./screenshot/${lists[i].PROJECT_ID}/${today}.png`,
+      path:  `./public/screenshot/${lists[i].PROJECT_ID}/${today}.png`,
     })
     await context.tracing.stop({
-      path: `./trace/${lists[i].PROJECT_ID}/${today}.zip`
+      path: `./public/trace/${lists[i].PROJECT_ID}/${today}.zip`
     });
     await context.close();
     await browser.close();
@@ -75,8 +75,8 @@ test('Projects Test', async ({}, expect) => {
       cdate: today,
       success: success,
       error: error,
-      screenshot: `/screenshot/${lists[i].PROJECT_ID}/${today}.png`,
-      traces: `/trace/${lists[i].PROJECT_ID}/${today}.zip`,
+      screenshot: `/public/screenshot/${lists[i].PROJECT_ID}/${today}.png`,
+      traces: `/public/trace/${lists[i].PROJECT_ID}/${today}.zip`,
       video: `${videoDir}`,
     }
     console.log(upJson)
