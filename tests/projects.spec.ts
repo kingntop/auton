@@ -17,8 +17,6 @@ import {
 import fs from 'fs';
 test('Projects Test', async ({}, expect) => {
 
-
-
   const lists = await getProjectUrlList();
   for (let i = 0; i < lists.length; i++) {
     const dirVideo = `./video/${lists[i].PROJECT_ID}/${today}`
