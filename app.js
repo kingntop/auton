@@ -3,9 +3,13 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const express = require('express');
+
+
 const shell_exec_1 = require("shell-exec");
 
 const app = express();
+const router = express.Router();
+
 app.use(express.static('public'));
 // Certificate 인증서 경로
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/cs.raiid.ai/privkey.pem', 'utf8');
@@ -18,9 +22,10 @@ const credentials = {
 	ca: ca
 };
 
-app.use((req, res) => {
-	res.send('Hello there !');
+app.get('/', function(req, res) {
+    res.send('hello world');
 });
+
 
 // Starting both http & https servers
 const httpServer = http.createServer(app);
@@ -36,6 +41,7 @@ app.get('/tw', async (request, response, next) => {
     response.jsonp(resJosn);
     // response.send('callback' + '('+ JSON.stringify(resJosn) + ');');
 });
+
 
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
