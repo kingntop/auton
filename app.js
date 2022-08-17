@@ -1,10 +1,9 @@
-/* app.js */
 
-// Dependencies
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const express = require('express');
+const shell_exec_1 = require("shell-exec");
 
 const app = express();
 app.use(express.static('public'));
@@ -26,6 +25,17 @@ app.use((req, res) => {
 // Starting both http & https servers
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
+
+app.get('/tw', async (request, response, next) => {
+    let resJosn = {};
+    (0, shell_exec_1.default)('/home/spacebank/twright/tw.sh').then(console.log).catch(console.log);
+    resJosn = {
+        code: 'S001',
+        message: 'Success'
+    };
+    response.jsonp(resJosn);
+    // response.send('callback' + '('+ JSON.stringify(resJosn) + ');');
+});
 
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
