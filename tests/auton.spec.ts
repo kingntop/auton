@@ -18,7 +18,7 @@ test('TestCase', async ({}) => {
   for (let i = 0; i < urlList.length; i++) {
 
     const browser = await chromium.launch({
-      channel: 'msedge',
+      // channel: 'msedge',
     });
 
     const dirVideo = `./public/video/${urlList[i].TEST_ID}/${today}`
