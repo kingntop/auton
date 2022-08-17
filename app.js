@@ -28,7 +28,7 @@ const httpsServer = https.createServer(credentials, app);
 
 app.get('/tw', async (request, response, next) => {
     let resJosn = {};
-    (0, shell_exec_1.default)('/home/spacebank/twright/tw.sh').then(console.log).catch(console.log);
+    // (0, shell_exec_1.default)('/home/spacebank/twright/tw.sh').then(console.log).catch(console.log);
     resJosn = {
         code: 'S001',
         message: 'Success'
