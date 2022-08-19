@@ -41,7 +41,7 @@ test('test', async ({}) => {
         waitUntil: 'networkidle'
       });
       await page.screenshot({
-        path: 'images/' + uidInfo.uid + '/' + screen.code + '.png',
+        path: 'public/home/' + uidInfo.uid + '/' + screen.code + '.png',
         fullPage: true
       });
       let end_mi = Date.now();
