@@ -26,7 +26,6 @@ app.get('/', function(req, res) {
     res.send('hello world');
 });
 
-
 // Starting both http & https servers
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);

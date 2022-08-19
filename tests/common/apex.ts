@@ -32,6 +32,18 @@ const post_url = DEV + 'v1/twright/logs/'
 const get_url  = DEV + 'v1/twright/tests/'
 const get_all_url = DEV + 'twright/v1/twright/tests' 
 
+
+async function getHomeUid(): Promise < any[] > {
+    let users: any[] = [];
+    const response:any =  await axios.get('https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/twright/v1/twright/tests', {
+        // headers: {
+        //     Authorization: auth_key 
+        // }
+    })
+    console.log(response.data)
+    return response.data.items
+}
+
 async function getUrlList(): Promise < any[] > {
     let users: any[] = [];
     const response:any =  await axios.get('https://g575dfbc1dbf538-playwright.adb.ap-seoul-1.oraclecloudapps.com/ords/playwright/lists/lists/', {
@@ -52,6 +64,31 @@ async function getProjectUrlList(): Promise < any[] > {
     })
     console.log(response.data)
     return response.data.items
+}
+
+async function postApexScreen(rid :string, upJson: any):Promise < boolean > {
+    const request_config = {
+        headers: {
+            "Content-Type": 'application/json',
+            "Authorization": auth_key,
+        },
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        data: upJson
+    };
+    const url = 'https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/twright/v1/twright/logs/' + rid;
+    const response = await axios.post(url,  upJson, request_config);
+    console.log(url, upJson)
+    try {
+        if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+            console.log(response.data);
+            return true;
+        }
+        return false;
+    } catch (err) {
+        console.error(err)
+        return false;
+    }
 }
 
 async function postApex(upJson: any):Promise < boolean > {
@@ -108,5 +145,7 @@ export {
     postApex,
     getUrlList,
     getProjectUrlList,
-    getUidAll
+    getUidAll,
+    getUid,
+    postApexScreen
 }
