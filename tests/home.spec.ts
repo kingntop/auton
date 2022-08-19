@@ -54,6 +54,7 @@ test('test', async ({}) => {
       }
       Json.push(apexJson)
     }
+    console.log(uidInfo.uid);
     postApexScreen(uidInfo.uid, Json)
   }
 });

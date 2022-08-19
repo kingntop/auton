@@ -76,7 +76,9 @@ async function postApexScreen(rid :string, upJson: any):Promise < boolean > {
         maxBodyLength: Infinity,
         data: upJson
     };
+
     const url = 'https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/twright/v1/twright/logs/' + rid;
+    console.log(url, upJson)
     const response = await axios.post(url,  upJson, request_config);
     console.log(url, upJson)
     try {
@@ -101,6 +103,7 @@ async function postApex(upJson: any):Promise < boolean > {
         maxBodyLength: Infinity,
         data: upJson
     };
+    console.log(p_url, upJson)
     const response = await axios.post(p_url,  upJson, request_config);
     console.log(p_url, upJson)
     try {
