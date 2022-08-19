@@ -38,7 +38,7 @@ test('test', async ({}) => {
       const page = await context.newPage()
       let start_mi = Date.now();
       await page.goto(uidInfo.url, {
-        waitUntil: 'networkidle'
+        waitUntil: 'domcontentloaded'
       });
       await page.screenshot({
         path: 'public/home/' + uidInfo.uid + '/' + screen.code + '.png',

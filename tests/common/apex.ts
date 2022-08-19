@@ -77,10 +77,10 @@ async function postApexScreen(rid :string, upJson: any):Promise < boolean > {
         data: upJson
     };
 
-    const url = 'https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/twright/v1/twright/logs/' + rid;
-    console.log(url, upJson)
-    const response = await axios.post(url,  upJson, request_config);
-    console.log(url, upJson)
+    const postUrl = 'https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/twright/v1/twright/logs/' + rid;
+    console.log(postUrl, upJson)
+    const response = await axios.post(postUrl, upJson, request_config);
+    console.log(postUrl, upJson)
     try {
         if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
             console.log(response.data);
