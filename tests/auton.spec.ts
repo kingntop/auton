@@ -5,7 +5,8 @@ import {
   expect
 } from '@playwright/test';
 import {
-  today
+  today,
+  errMsg
 } from "./common/utils";
 import path from 'path';
 import {
@@ -21,7 +22,7 @@ test('TestCase', async ({}) => {
       // channel: 'msedge',
     });
 
-    const dirVideo = `./public/video/${urlList[i].TEST_ID}/${today}`
+    const dirVideo = `/logs/public/video/${urlList[i].TEST_ID}/${today}`
     let elapsed: number = 0;
     let success = 'Y';
     let error = '';
@@ -43,22 +44,26 @@ test('TestCase', async ({}) => {
       });
       const endTime = new Date();
       elapsed = endTime - startTime;
+
       await page.waitForTimeout(2000);
-      await page.waitForSelector(urlList[i].EXPECT);
+      await page.waitForSelector(urlList[i].EXPECT, {timeout:urlList[i].TIME_LIMIT });
       await page.screenshot({
-        path: `./public/screenshot/${urlList[i].TEST_ID}/${today}.png`
+        path: `/logs/public/screenshot/${urlList[i].TEST_ID}/${today}.png`
       });
+
+      if (urlList[i].TIME_LIMIT < elapsed) throw '시간초과:' + elapsed.toString()
+
     } catch (err) {
       success = 'N';
-      error = err.toString();
+      error = errMsg(err.toString())
     }
     await context.tracing.stop({
-      path: `./public/trace/${urlList[i].TEST_ID}/${today}.zip`
+      path: `/logs/public/trace/${urlList[i].TEST_ID}/${today}.zip`
     });
     await context.close();
     await browser.close();
     const files = fs.readdirSync(dirVideo);
-    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/').replace('public', '');
+    const videoDir = `${dirVideo}/${files[0]}`.replace('./', '/').replace('/logs/public', '');
     const upJson = {
       id: urlList[i].TEST_ID,
       url: urlList[i].URL,
@@ -68,6 +73,7 @@ test('TestCase', async ({}) => {
       cdate: today,
       success: success,
       error: error,
+      error_gbn:error.substring(0, error.indexOf(':')),
       screenshot: `/screenshot/${urlList[i].TEST_ID}/${today}.png`,
       traces: `/trace/${urlList[i].TEST_ID}/${today}.zip`,
       video: `${videoDir}`,
