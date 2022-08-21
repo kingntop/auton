@@ -39,8 +39,7 @@ test('TestCase', async ({}) => {
     try {
       const startTime = new Date();
       await page.goto(urlList[i].URL, {
-        waitUntil: 'domcontentloaded',
-        timeout: 5000
+        waitUntil: 'domcontentloaded'
       });
       const endTime = new Date();
       elapsed = endTime - startTime;

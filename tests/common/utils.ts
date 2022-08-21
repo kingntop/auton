@@ -16,9 +16,12 @@ function errMsg(err:string):string {
     if ( err.includes('page.waitForSelector') ) {
         return 'Element 없음:' + err;
     }
-
+    
     if(err.indexOf('TimeoutError:') > -1) {
-        return err;
+        return '시간초과:' + err;
+    }
+    if ( err.substring( 0, 5) == 'Error' && err.includes('unexpected value') ) {
+        return 'Element 없음:' + err;
     }
     return err.toString();
 }

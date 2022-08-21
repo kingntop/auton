@@ -86,6 +86,31 @@ async function postApex(upJson: any):Promise < boolean > {
 }
 
 
+async function postApeResource(upJson: any):Promise < boolean > {
+    const request_config = {
+        headers: {
+            "Content-Type": 'application/json',
+            "Authorization": auth_key,
+        },
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        data: upJson
+    };
+    const response = await axios.post('http://localhost/ords/playwright/jons/resources/',  upJson, request_config);
+    // console.log(p_url, upJson)
+    try {
+        if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+            console.log(response.data);
+            return true;
+        }
+        return false;
+    } catch (err) {
+        console.error(err)
+        return false;
+    }
+}
+
+
 async function postDelApex(days: string):Promise < boolean > {
     const delDbUrl = 'http://localhost/ords/playwright/lists/settings/'
 
@@ -112,5 +137,6 @@ export {
     getUrlList,
     getProjectUrlList,
     getCodeList,
-    postDelApex
+    postDelApex,
+    postApeResource
 }

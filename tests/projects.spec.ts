@@ -16,8 +16,31 @@ import {
   postApex
 } from "./common/apex";
 
-
 import fs from 'fs';
+
+function awaitExpectCode(strcode: string) {
+  const waitforTime = 'await page.waitForTimeout(1000); \n';
+  const result = strcode.split(/\r?\n/);
+  let waitResult= []
+  for (const line of result) {
+    if (line.includes('await expect')) {
+      waitResult.push(waitforTime);
+    }
+    if (line.substring(0, 6) === 'import') {
+      continue
+    }
+    if (line.substring(0, 5) === 'test(') {
+      continue
+    }
+    if (line.substring(0, 3) === '});') {
+      continue
+    }
+    waitResult.push(line);
+  }
+  const strcode2 = waitResult.join('\n');
+  return strcode2;
+}
+
 test('Projects Test', async ({}, expect) => {
 
   const lists = await getProjectUrlList();
@@ -49,9 +72,12 @@ test('Projects Test', async ({}, expect) => {
               }
               )();`);
       }
+
       const strcode = lists[i].TSCODE;
+      const newcode = awaitExpectCode(strcode);
+      
       const startTime = new Date();
-      await playtest(strcode);
+      await playtest(newcode);
       const endTime = new Date();
       
       elapsed = endTime - startTime;
