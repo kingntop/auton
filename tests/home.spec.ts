@@ -19,9 +19,7 @@ import {
   getUidAll
 } from "./common/apex";
 
-
-
-test('test', async ({}) => {
+test('Home Page', async ({}) => {
 
   let Json = []
   const uidInfos = await getUidAll();
