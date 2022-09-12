@@ -42,6 +42,51 @@ app.get('/tw', async (request, response, next) => {
 });
 
 
+app.get('/case1', async (request, response, next) => {
+    let resJosn = {};
+
+     
+  {
+    "values": [
+      [
+        "1",
+        "대구분",
+        "중구분",
+        "소구분1",
+        "소구분2",
+        "소구분3",
+        "비밀번호 리셋을 어떻게 하나요?",
+        "비밀번호 리셋을 하는 방법은 다음과 같습니다.",
+        "http://daum.net",
+        "https://tippingkorea.co.kr/data/education/15614238911.png"
+      ]
+      ],
+    "schema_type": "1.0"
+  }
+    
+  
+    resJosn = {
+        [
+            [
+            '1',
+            '대구분',
+            '중구분',
+            '소구분1',
+            '소구분2',
+            '소구분3',
+            '비밀번호 리셋을 어떻게 하나요?',
+            '비밀번호 리셋을 하는 방법은 다음과 같습니다.',
+            'http://daum.net',
+            'https://tippingkorea.co.kr/data/education/15614238911.png'
+            ]
+        ],
+        schema_type : '1.0'
+    };
+    response.jsonp(resJosn);
+    // response.send('callback' + '('+ JSON.stringify(resJosn) + ');');
+});
+
+
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
 });
